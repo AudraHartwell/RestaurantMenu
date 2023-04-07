@@ -5,11 +5,25 @@ import java.util.Date;
 public class Menu {
 
     private ArrayList<MenuItem> items;
+
+
+    public Menu(ArrayList<MenuItem> items) {
+        this.items = items;
+    }
+
     private Date lastUpdated;
 
- //   public Menu<>
+    public void addItem (MenuItem newItem) {
+        this.items.add(newItem);
+    }
+    public void removeItem (MenuItem MenuItemToBeRemoved) {
+        this.items.remove(MenuItemToBeRemoved);
+    }
 
-public void setItems(ArrayList<MenuItem> items) {
+
+    public void printMenu () {
+    }
+    public void setItems(ArrayList<MenuItem> items) {
     this.items=items;
 }
 
@@ -22,5 +36,6 @@ public ArrayList<MenuItem> getItems() {
 public Date getLastUpdated() {
     return lastUpdated;
 }
+
 
 }

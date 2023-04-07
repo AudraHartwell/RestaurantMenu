@@ -1,11 +1,10 @@
 package restaurant;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 
 public class MenuItem {
-
-   // { MenuItem pretzelBites=new MenuItem("Pretzel Bites", "Handcrafted soft pretzels with Wisconsin beer cheese", "appetizer", 9.50, false);}
 
         private String name;
         private String description;
@@ -35,7 +34,7 @@ public class MenuItem {
     }
     public void setPrice (double price) {
         this.price=price;}
-    public void setNew (boolean isNew) {
+    public void setIsNew (boolean isNew) {
         this.isNew=isNew;
     }
     public String getName() {
@@ -54,8 +53,36 @@ public class MenuItem {
         return price;
     }
 
-    public boolean isNew() {
+    public boolean IsNew() {
         return isNew;
+    }
+
+    //single menu item:
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", isNew=" + isNew +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if (obj == this ) return true;
+       if (!(obj instanceof MenuItem)) {
+           return false;
+       }
+
+       MenuItem menuItem = (MenuItem) obj;
+       if (menuItem.name.equals(this.name)
+           && menuItem.description.equals(this.description)
+                && (menuItem.price ==this.price)
+                && menuItem.category.equals(this.category)) {
+           return true;
+       } return false;
     }
 }
 
